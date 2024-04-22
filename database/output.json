@@ -1,0 +1,1472 @@
+[
+  {
+    "teacherID": "GV01",
+    "teacherName": "Nguyễn Trung Thành",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV02",
+    "teacherName": "Vũ Minh Mạnh",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV03",
+    "teacherName": "Ninh Thị Thu Trang",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV04",
+    "teacherName": "Đỗ Xuân Chợ",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV05",
+    "teacherName": "Đinh Trường Duy",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV06",
+    "teacherName": "Nguyễn Ngọc Điệp",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV07",
+    "teacherName": "Hoàng Xuân Dậu",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV08",
+    "teacherName": "Đặng Minh Tuấn",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV09",
+    "teacherName": "Nguyễn Hoa Cương",
+    "faculty": "AT",
+    "department": "AT1"
+  },
+  {
+    "teacherID": "GV10",
+    "teacherName": "Nguyễn Thị Thanh Huyền",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV100",
+    "teacherName": "Nguyễn Hoàng Anh",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV101",
+    "teacherName": "Nguyễn Trọng Khánh (TH: Nguyễn Hoàng Anh)",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV102",
+    "teacherName": "Trần Đình Quế (TH: Trịnh Thị Vân Anh))",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV103",
+    "teacherName": "Nguyễn Thị Thanh Tâm",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV104",
+    "teacherName": "Nguyễn Mạnh Hùng",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV105",
+    "teacherName": "Trần Đình Quế",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV106",
+    "teacherName": "Đỗ Thị Bích Ngọc",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV107",
+    "teacherName": "Đặng Ngọc Hùng",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV108",
+    "teacherName": "Nguyễn Mạnh Hùng (TH: Trịnh Thị Vân Anh)",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV109",
+    "teacherName": "Nguyễn Quang Hưng",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV11",
+    "teacherName": "Phạm Minh Ái",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV110",
+    "teacherName": "Vũ Anh Đào",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV111",
+    "teacherName": "Vũ Anh Đào, Mai Thị Nghĩa",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV112",
+    "teacherName": "Dương Quang Duy",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV113",
+    "teacherName": "Nguyễn Thị Thu Hiền",
+    "faculty": "TNTH",
+    "department": "TNTH"
+  },
+  {
+    "teacherID": "GV114",
+    "teacherName": "Trương Cao Dũng",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV115",
+    "teacherName": "Trần Thị Thúy Hà",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV116",
+    "teacherName": "Nguyễn Xuân Hưng",
+    "faculty": "TNTH",
+    "department": "TNTH"
+  },
+  {
+    "teacherID": "GV117",
+    "teacherName": "Nguyễn Trung Hiếu",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV118",
+    "teacherName": "Lương Công Duẩn",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV119",
+    "teacherName": "Trần Thị Thanh Thủy, Nguyễn Quốc Uy",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV12",
+    "teacherName": "Đào Mạnh Ninh",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV120",
+    "teacherName": "Nguyễn Ngọc Minh",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV121",
+    "teacherName": "Nguyễn Văn Thành",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV122",
+    "teacherName": "Trịnh Trung Hiếu",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV123",
+    "teacherName": "Mai Thị Nghĩa",
+    "faculty": "DT",
+    "department": "KT1"
+  },
+  {
+    "teacherID": "GV124",
+    "teacherName": "Trương Minh Đức",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV125",
+    "teacherName": "Lê Đức Toàn",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV126",
+    "teacherName": "Nguyễn Quốc Dinh",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV127",
+    "teacherName": "Bùi Thị Dân",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV128",
+    "teacherName": "Ngô Đức Thiện",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV129",
+    "teacherName": "Nguyễn Tài Tuyên",
+    "faculty": "TNTH",
+    "department": "TNTH"
+  },
+  {
+    "teacherID": "GV13",
+    "teacherName": "Đỗ Thu Hường",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV130",
+    "teacherName": "Trần Tuấn Anh",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV131",
+    "teacherName": "Trần Thị Thục Linh",
+    "faculty": "DT",
+    "department": "LM1"
+  },
+  {
+    "teacherID": "GV132",
+    "teacherName": "Lê Thị Ánh",
+    "faculty": "KT",
+    "department": "0"
+  },
+  {
+    "teacherID": "GV133",
+    "teacherName": "Bùi Xuân Phong",
+    "faculty": "KT",
+    "department": "0"
+  },
+  {
+    "teacherID": "GV134",
+    "teacherName": "Nguyễn Thị Vân Anh",
+    "faculty": "KT",
+    "department": "0"
+  },
+  {
+    "teacherID": "GV135",
+    "teacherName": "Nguyễn Hương Anh- Đinh Chí Hiếu",
+    "faculty": "KT",
+    "department": "0"
+  },
+  {
+    "teacherID": "GV136",
+    "teacherName": "Phạm Vũ Hà Thanh",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV137",
+    "teacherName": "Vũ Quang Kết",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV138",
+    "teacherName": "Nguyễn Thị Việt Lê",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV139",
+    "teacherName": "Lê Thị Ngọc Phương",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV14",
+    "teacherName": "Nguyễn Ngọc Hà",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV140",
+    "teacherName": "Nguyễn Văn Hậu",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV141",
+    "teacherName": "Nguyễn Thị Chinh Lam",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV142",
+    "teacherName": "Đinh Xuân Dũng",
+    "faculty": "KT",
+    "department": "KO1"
+  },
+  {
+    "teacherID": "GV143",
+    "teacherName": "Đặng Thị Việt Đức",
+    "faculty": "KT",
+    "department": "TC1"
+  },
+  {
+    "teacherID": "GV144",
+    "teacherName": "Đặng Phong Nguyên",
+    "faculty": "KT",
+    "department": "TC1"
+  },
+  {
+    "teacherID": "GV145",
+    "teacherName": "Nguyễn Hương Anh",
+    "faculty": "KT",
+    "department": "TC1"
+  },
+  {
+    "teacherID": "GV146",
+    "teacherName": "Vương Khánh Ly",
+    "faculty": "MUL",
+    "department": "BC1"
+  },
+  {
+    "teacherID": "GV147",
+    "teacherName": "Trần Thị Tuyết Nhung",
+    "faculty": "MUL",
+    "department": "BC1"
+  },
+  {
+    "teacherID": "GV148",
+    "teacherName": "Hà Thị Hồng Ngân",
+    "faculty": "MUL",
+    "department": "BC1"
+  },
+  {
+    "teacherID": "GV149",
+    "teacherName": "Phí Công Huy",
+    "faculty": "MUL",
+    "department": "BC1"
+  },
+  {
+    "teacherID": "GV15",
+    "teacherName": "Nguyễn Tài Quang",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV150",
+    "teacherName": "Bùi Thị Vân Anh",
+    "faculty": "MUL",
+    "department": "BC1"
+  },
+  {
+    "teacherID": "GV151",
+    "teacherName": "Nguyễn Cảnh Châu",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV152",
+    "teacherName": "Vũ Hữu Tiến",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV153",
+    "teacherName": "Nguyễn Thị Kim Ngân",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV154",
+    "teacherName": "Trần Quốc Trung",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV155",
+    "teacherName": "Hà Thị Huệ",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV156",
+    "teacherName": "Khuất Thị Hà",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV157",
+    "teacherName": "Nguyễn Thị Tuyết Mai",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV158",
+    "teacherName": "Đỗ Văn Hanh",
+    "faculty": "MUL",
+    "department": "PT1"
+  },
+  {
+    "teacherID": "GV159",
+    "teacherName": "Vũ Thị Tú Anh",
+    "faculty": "MUL",
+    "department": "TK1"
+  },
+  {
+    "teacherID": "GV16",
+    "teacherName": "Đỗ Minh Sơn",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV160",
+    "teacherName": "Nguyễn Phương Anh",
+    "faculty": "MUL",
+    "department": "TK1"
+  },
+  {
+    "teacherID": "GV161",
+    "teacherName": "Hoàng Đăng Hải",
+    "faculty": "MUL",
+    "department": "TK1"
+  },
+  {
+    "teacherID": "GV162",
+    "teacherName": "Trần Ngọc Trang Ninh",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV163",
+    "teacherName": "Nguyễn Vân Anh",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV164",
+    "teacherName": "Đỗ Hải Hoàn",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV165",
+    "teacherName": "Trần Đức Lai",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV166",
+    "teacherName": "Vũ Thùy Linh",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV167",
+    "teacherName": "Lê Tuấn Anh",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV168",
+    "teacherName": "Lê Thị Hằng",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV169",
+    "teacherName": "Nguyễn Đình Sơn",
+    "faculty": "MUL",
+    "department": "TT1"
+  },
+  {
+    "teacherID": "GV17",
+    "teacherName": "Tạ Thị Thanh Hà",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV170",
+    "teacherName": "Bùi Thị Nhung",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV171",
+    "teacherName": "Trần Ngọc Minh",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV172",
+    "teacherName": "Đỗ Thị Lan Anh, LêThị Ngọc Diệp",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV173",
+    "teacherName": "Lê Thị Ngọc Diệp",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV174",
+    "teacherName": "Vũ Trọng Phong",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV175",
+    "teacherName": "Trần Thị Hòa",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV176",
+    "teacherName": "Giảng viên thỉnh giảng",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV177",
+    "teacherName": "Trần Đoàn Hạnh",
+    "faculty": "QT",
+    "department": "KN1"
+  },
+  {
+    "teacherID": "GV178",
+    "teacherName": "Lê Thị Bích Ngọc",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV179",
+    "teacherName": "Trần Thị Thúy Hồng",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV18",
+    "teacherName": "Đỗ Thị Diệu",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV180",
+    "teacherName": "Phạm Thị Minh Lan",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV181",
+    "teacherName": "Trần Thị Thập / Lê Thị Bích Ngọc",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV182",
+    "teacherName": "Nguyễn Thùy Dung",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV183",
+    "teacherName": "Trần Thị Thập",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV184",
+    "teacherName": "Nguyễn Thị Minh An",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV185",
+    "teacherName": "Nguyễn Thị Minh An / Dương Thúy Hằng",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV186",
+    "teacherName": "Dương Thúy Hằng",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV187",
+    "teacherName": "Nguyễn Thanh Nga",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV188",
+    "teacherName": "Trần Thị Thập / DN",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV189",
+    "teacherName": "Nguyễn Thu Vân",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV19",
+    "teacherName": "Phan Hải Cường",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV190",
+    "teacherName": "Nguyễn Mỹ Vân",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV191",
+    "teacherName": "Lê Thị Bích Ngọc ",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV192",
+    "teacherName": "Trần Thị Thúy Hồng / Trần Thị Thập / DN",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV193",
+    "teacherName": "Nguyễn Mỹ Vân; Trần Thị Thập / DN",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV194",
+    "teacherName": "Dương Thúy Hằng; Trần Thị Thập / DN",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV195",
+    "teacherName": "Nguyễn Thị Thanh Huyền, Vũ Chí Kiên",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV196",
+    "teacherName": "Nguyễn Quang Huy (TG)",
+    "faculty": "QT",
+    "department": "QU1"
+  },
+  {
+    "teacherID": "GV197",
+    "teacherName": "Phí Thị Thúy Nga",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV198",
+    "teacherName": "Trần Thanh Mai",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV199",
+    "teacherName": "Trần Hương Giang",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV20",
+    "teacherName": "Nguyễn Thị Thơm",
+    "faculty": "CB",
+    "department": "ML1"
+  },
+  {
+    "teacherID": "GV200",
+    "teacherName": "Lê Vũ Điệp",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV201",
+    "teacherName": "Trần Duy",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV202",
+    "teacherName": "Từ Thảo Hương Giang",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV203",
+    "teacherName": "Đinh Thị Hương",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV204",
+    "teacherName": "Nguyễn Thị Kim Chi",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV205",
+    "teacherName": "Lê Thị Hồng Yến",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV206",
+    "teacherName": "Trần Quang Huy",
+    "faculty": "VKT",
+    "department": "KNM"
+  },
+  {
+    "teacherID": "GV207",
+    "teacherName": "Trần Thanh Hương",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV208",
+    "teacherName": "Nguyễn Bình Minh",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV209",
+    "teacherName": "Nguyễn Việt Dũng",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV21",
+    "teacherName": "Nguyễn Đức Toàn 2",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV210",
+    "teacherName": "Nguyễn Thị Phương Dung",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV211",
+    "teacherName": "Nguyễn Hoàng Giang",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV212",
+    "teacherName": "Lưu Văn Hiếu",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV213",
+    "teacherName": "Phạm Thị Thái Quỳnh",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV214",
+    "teacherName": "Vũ Việt Tiến",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV215",
+    "teacherName": "Trương Đình Trang",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV216",
+    "teacherName": "Nguyễn Thị Hoàng Yến",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV217",
+    "teacherName": "Lê Bảo Ngọc",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV218",
+    "teacherName": "Nguyễn Ngọc Anh",
+    "faculty": "VKT",
+    "department": "MAR"
+  },
+  {
+    "teacherID": "GV219",
+    "teacherName": "Nguyễn Trọng Trung  Anh",
+    "faculty": "VT",
+    "department": "KD1"
+  },
+  {
+    "teacherID": "GV22",
+    "teacherName": "Nguyễn Đức Toàn 1",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV220",
+    "teacherName": "Lê Hải Châu",
+    "faculty": "VT",
+    "department": "KD1"
+  },
+  {
+    "teacherID": "GV221",
+    "teacherName": "Vũ Thị Thúy Hà",
+    "faculty": "VT",
+    "department": "KD1"
+  },
+  {
+    "teacherID": "GV222",
+    "teacherName": "Nguyễn Minh Tuấn/ Nghuyễn Trọng Trung Anh",
+    "faculty": "VT",
+    "department": "KD1"
+  },
+  {
+    "teacherID": "GV223",
+    "teacherName": "Dương T. Thanh Tú",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV224",
+    "teacherName": "Nguyễn Tiến Ban",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV225",
+    "teacherName": "Nguyễn Chiến Trinh",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV226",
+    "teacherName": "Nguyễn Thị Thu Hiên",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV227",
+    "teacherName": "Bùi Trường Sơn/Đặng Trần Lê Anh",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV228",
+    "teacherName": "Nguyễn Thị Thu Hiên/ Bùi Trường Sơn",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV229",
+    "teacherName": "Nguyễn Thanh Trà",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV23",
+    "teacherName": "Vũ Thị Bích Thuỷ",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV230",
+    "teacherName": "Phạm Anh Thư",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV231",
+    "teacherName": "Hoàng Trọng Minh",
+    "faculty": "VT",
+    "department": "MT1"
+  },
+  {
+    "teacherID": "GV232",
+    "teacherName": "Nguyễn Thu Nga",
+    "faculty": "VT",
+    "department": "TH1"
+  },
+  {
+    "teacherID": "GV233",
+    "teacherName": "Lê Thanh Thủy",
+    "faculty": "VT",
+    "department": "TH1"
+  },
+  {
+    "teacherID": "GV234",
+    "teacherName": "Cao Hồng Sơn",
+    "faculty": "VT",
+    "department": "TH1"
+  },
+  {
+    "teacherID": "GV235",
+    "teacherName": "Bùi Quang Chung",
+    "faculty": "VT",
+    "department": "TH1"
+  },
+  {
+    "teacherID": "GV236",
+    "teacherName": "Ngô Thu Trang",
+    "faculty": "VT",
+    "department": "TH1"
+  },
+  {
+    "teacherID": "GV237",
+    "teacherName": "Phạm Thị Thúy Hiền",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV238",
+    "teacherName": "Phạm Thị Thúy Hiền/Đặng Thế Ngọc",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV239",
+    "teacherName": "Đặng Thế Ngọc",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV24",
+    "teacherName": "Nguyễn Quỳnh Giao",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV240",
+    "teacherName": "Nguyễn Viết Đảm",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV241",
+    "teacherName": "Lê Tùng Hoa",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV242",
+    "teacherName": "Lê Tùng Hoa/Nguyễn Viết Đảm",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV243",
+    "teacherName": "Nguyễn Việt Hưng",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV244",
+    "teacherName": "Nguyễn Viết Minh",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV245",
+    "teacherName": "Nguyễn Văn Thăng",
+    "faculty": "VT",
+    "department": "VO1"
+  },
+  {
+    "teacherID": "GV25",
+    "teacherName": "Đỗ Thị Phương Thuý",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV26",
+    "teacherName": "Nguyễn Hồng Nga",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV27",
+    "teacherName": "Trần Thị Thanh Ngát",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV28",
+    "teacherName": "Lê Thị Hồng Hạnh",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV29",
+    "teacherName": "Ngô Thị Sâm",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV30",
+    "teacherName": "Phạm Thuý Hồng",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV31",
+    "teacherName": "Bùi Thị Lâm Thương",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV32",
+    "teacherName": "Đào Thị Chinh",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV33",
+    "teacherName": "Trần Thị Thanh Bình",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV34",
+    "teacherName": "Trần Minh Sơn",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV35",
+    "teacherName": "Nguyễn Thị Thu",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV36",
+    "teacherName": "Đào Tuyết Nga",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV37",
+    "teacherName": "Phạm Thị Nguyên Thư",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV38",
+    "teacherName": "Nguyễn Thị Thuận",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV39",
+    "teacherName": "Phan Hồng Nga",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV40",
+    "teacherName": "Trần Thị Thuỳ Linh",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV41",
+    "teacherName": "Bùi Thị Thanh Mai",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV42",
+    "teacherName": "Nguyễn Thị Phương Nhung",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV43",
+    "teacherName": "Nguyễn Thị Thu Hà",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV44",
+    "teacherName": "Nguyễn Thị Thu Nga",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV45",
+    "teacherName": "Nguyễn Thị Thiết",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV46",
+    "teacherName": "Vũ Thị Sâm",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV47",
+    "teacherName": "Nguyễn Thị Hồ Thu",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV48",
+    "teacherName": "Đỗ Thị Bích Loan",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV49",
+    "teacherName": "Đặng Đức Quang",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV50",
+    "teacherName": "Kim Ngọc Anh",
+    "faculty": "CB",
+    "department": "NN1"
+  },
+  {
+    "teacherID": "GV51",
+    "teacherName": "Hoàng Phi Dũng",
+    "faculty": "CB",
+    "department": "TO1"
+  },
+  {
+    "teacherID": "GV52",
+    "teacherName": "Lê Văn Ngọc",
+    "faculty": "CB",
+    "department": "TO1"
+  },
+  {
+    "teacherID": "GV53",
+    "teacherName": "Trần Việt Anh",
+    "faculty": "CB",
+    "department": "TO1"
+  },
+  {
+    "teacherID": "GV54",
+    "teacherName": "Nguyễn Thị Thúy Liễu",
+    "faculty": "CB",
+    "department": "VL1"
+  },
+  {
+    "teacherID": "GV55",
+    "teacherName": "Lê Thị Minh Thanh",
+    "faculty": "CB",
+    "department": "VL1"
+  },
+  {
+    "teacherID": "GV56",
+    "teacherName": "Tô Thị Thảo",
+    "faculty": "CB",
+    "department": "VL1"
+  },
+  {
+    "teacherID": "GV57",
+    "teacherName": "Hoàng Thị Lan Hương",
+    "faculty": "CB",
+    "department": "VL1"
+  },
+  {
+    "teacherID": "GV58",
+    "teacherName": "Đào Thị Hồng",
+    "faculty": "CB",
+    "department": "VL1"
+  },
+  {
+    "teacherID": "GV59",
+    "teacherName": "Vũ Thị Hồng Nga",
+    "faculty": "CB",
+    "department": "VL1"
+  },
+  {
+    "teacherID": "GV60",
+    "teacherName": "Trần Quốc Khánh",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV61",
+    "teacherName": "Phan Thị Hà",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV62",
+    "teacherName": "Nguyễn Xuân Anh",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV63",
+    "teacherName": "Phạm Văn Cường",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV64",
+    "teacherName": "Nguyễn Đình Hóa",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV65",
+    "teacherName": "Dương Trần Đức",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV66",
+    "teacherName": "Nguyễn Quỳnh Chi",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV67",
+    "teacherName": "Khoa CNTT1",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV68",
+    "teacherName": "Trần Quý Nam",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV69",
+    "teacherName": "Nguyễn Trọng Khánh",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV70",
+    "teacherName": "Nguyễn Đình Long",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV71",
+    "teacherName": "Ngô Xuân Thành",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV72",
+    "teacherName": "Nguyễn Thị Thanh Thủy",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV73",
+    "teacherName": "Trần Tiến Công",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV74",
+    "teacherName": "Nguyễn Đức Việt",
+    "faculty": "TNTH",
+    "department": "TNTH"
+  },
+  {
+    "teacherID": "GV75",
+    "teacherName": "Nguyễn Đức Minh",
+    "faculty": "TNTH",
+    "department": "TNTH"
+  },
+  {
+    "teacherID": "GV76",
+    "teacherName": "Nguyễn Quốc Uy",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV77",
+    "teacherName": "Đặng Văn Hiếu",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV78",
+    "teacherName": "Nguyễn Hải Dũng",
+    "faculty": "CN",
+    "department": "HT1"
+  },
+  {
+    "teacherID": "GV79",
+    "teacherName": "Nguyễn Quý Sỹ",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV80",
+    "teacherName": "Đào Thị Thúy Quỳnh",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV81",
+    "teacherName": "Nguyễn Tất Thắng",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV82",
+    "teacherName": "Nguyễn Thị Hương Thảo",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV83",
+    "teacherName": "Phạm Văn Sự",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV84",
+    "teacherName": "Đinh Xuân Trường",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV85",
+    "teacherName": "Đỗ Tiến Dũng",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV86",
+    "teacherName": "Đinh Văn Tuân",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV87",
+    "teacherName": "Vũ Hoài Nam",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV88",
+    "teacherName": "Vũ Văn Thỏa ",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV89",
+    "teacherName": "Nguyễn Thị Mai Trang",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV90",
+    "teacherName": "Nguyễn Kiều Linh",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV91",
+    "teacherName": "Ngô Xuân Bách",
+    "faculty": "CN",
+    "department": "KM1"
+  },
+  {
+    "teacherID": "GV92",
+    "teacherName": "Nguyễn Duy Phương",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV93",
+    "teacherName": "Đào Ngọc Phong",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV94",
+    "teacherName": "Đỗ Thị Liên",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV95",
+    "teacherName": "Nguyễn Đình Hiến",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV96",
+    "teacherName": "Nguyễn Mạnh Sơn",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV97",
+    "teacherName": "Nguyễn Văn Tiến",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV98",
+    "teacherName": "Nguyễn Ngọc Quang",
+    "faculty": "CN",
+    "department": "PM1"
+  },
+  {
+    "teacherID": "GV99",
+    "teacherName": "Trịnh Thị Vân Anh",
+    "faculty": "CN",
+    "department": "PM1"
+  }
+]

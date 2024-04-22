@@ -1,0 +1,67 @@
+[
+ {
+   "A": "Mã MH",
+   "B": "Tên môn học"
+ },
+ {
+   "A": "BAS1151",
+   "B": "Kinh tế chính trị Mác- Lênin"
+ },
+ {
+   "A": "ELE1433",
+   "B": "Kỹ thuật số"
+ },
+ {
+   "A": "INT1155",
+   "B": "Tin học cơ sở 2"
+ },
+ {
+   "A": "BAS1224",
+   "B": "Vật lý 1 và thí nghiệm"
+ },
+ {
+   "A": "BAS1107",
+   "B": "Giáo dục thể chất 2"
+ },
+ {
+   "A": "BAS1157",
+   "B": "Tiếng Anh (Course 1)"
+ },
+ {
+   "A": "BAS1204",
+   "B": "Giải tích 2"
+ }
+][
+  {
+    "A": "Mã MH",
+    "B": "Tên môn học"
+  },
+  {
+    "A": "BAS1151",
+    "B": "Kinh tế chính trị Mác- Lênin"
+  },
+  {
+    "A": "ELE1433",
+    "B": "Kỹ thuật số"
+  },
+  {
+    "A": "INT1155",
+    "B": "Tin học cơ sở 2"
+  },
+  {
+    "A": "BAS1224",
+    "B": "Vật lý 1 và thí nghiệm"
+  },
+  {
+    "A": "BAS1107",
+    "B": "Giáo dục thể chất 2"
+  },
+  {
+    "A": "BAS1157",
+    "B": "Tiếng Anh (Course 1)"
+  },
+  {
+    "A": "BAS1204",
+    "B": "Giải tích 2"
+  }
+ ]
