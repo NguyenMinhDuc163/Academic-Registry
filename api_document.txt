@@ -1,0 +1,66 @@
+API Documentation
+
+http://localhost:3000/api/v1
+
+1. Get Courses
+
+    GET /courses
+    Retrieves a list of all courses.
+    Success Response: 200 OK with list of courses.
+    Error Response: 500 Internal Server Error
+
+2. Get Subjects by Department
+
+    GET /subjects/:khoaId
+    Retrieves subjects offered by a specific department.
+    Parameters: khoaId - Department ID
+    Success Response: 200 OK with subject details.
+    Error Response: 500 Internal Server Error
+
+3. Class Registration Listing
+
+    GET /class-registrations
+    Retrieves all classes available for registration.
+    Success Response: 200 OK with class details.
+    Error Response: 500 Internal Server Error
+
+4. Register for a Class
+
+    POST /register-class
+    Registers a student for a class.
+    Data Required: { "dang_ki_id": "string", "sinh_vien_id": "string", "lop_hp_id": "string" }
+    Success Response: 200 OK with registration confirmation.
+    Error Response: 500 Internal Server Error
+
+5. Student's Registered Classes
+
+    GET /registrations/:sinhVienId
+    Retrieves all classes a student has registered for.
+    Parameters: sinhVienId - Student ID
+    Success Response: 200 OK with list of registered classes.
+    Error Response: 500 Internal Server Error
+
+6. Unregister a Class
+
+    DELETE /unregister-class/:dangKiId
+    Unregisters a student from a class.
+    Parameters: dangKiId - Registration ID
+    Success Response: 200 OK with deletion confirmation.
+    Error Response: 500 Internal Server Error
+
+7. Update Class Registration
+
+    PUT /update-registration/:dangKiId
+    Updates an existing class registration.
+    Data Required: { "lop_hp_id": "string" }
+    Parameters: dangKiId - Registration ID
+    Success Response: 200 OK with update confirmation.
+    Error Response: 500 Internal Server Error
+
+8. Student Grades
+
+    GET /student-grades/:sinhVienId
+    Retrieves grades for a student's registered subjects.
+    Parameters: sinhVienId - Student ID
+    Success Response: 200 OK with grades details.
+    Error Response: 500 Internal Server Error

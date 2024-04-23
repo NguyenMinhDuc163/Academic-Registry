@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000; // Sử dụng giá trị PORT từ .env,
 app.use(express.json());
 
 
-app.use('/api', router);
+app.use('/api/v1', router);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
