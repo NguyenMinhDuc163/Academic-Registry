@@ -18,6 +18,7 @@ router.get('/courses', async (req, res) => {
 router.get('/subjects/:khoaId', async (req, res) => {
     try {
         const db = await dbConnect();
+        console.log(req.params.khoaId);
         const result = await db.query('SELECT m.mon_hoc_id, m.ten_mon_hoc, m.so_tc, b.ten_bo_mon FROM mon_hoc m JOIN bo_mon b ON m.bo_mon_id = b.bo_mon_id WHERE b.khoa_id = ?', [req.params.khoaId]);
         apiResponse(res, 200, result.recordset, 'List of subjects retrieved successfully');
     } catch (error) {

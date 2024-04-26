@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -16,5 +16,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.9.7",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
