@@ -1,127 +1,199 @@
 const express = require("express");
+const sql = require('mssql');
 const dbConnect = require("../configs/db.config");
 const apiResponse = require("../utils/responseHelper"); // Đảm bảo đường dẫn này chính xác
 const router = express.Router();
 
-// 1. Lấy danh sách các khoá học có sẵn
-router.get('/courses', async (req, res) => {
+//http://localhost:3000/api/v1
+
+// login
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
     try {
         const db = await dbConnect();
-        const result = await db.query('SELECT khoa_id, ten_khoa, mota FROM khoa');
-        apiResponse(res, 200, result.recordset, 'List of courses retrieved successfully');
+        const userResult = await db.request()
+            .input('username', sql.NVarChar, username)
+            .query('SELECT tai_khoan_id, username, password, full_name, birth, email, ten_khoa, vai_tro FROM tai_khoan WHERE username = @username');
+
+        if (userResult.recordset.length === 0) {
+            return apiResponse(res, 404, null, 'User not found');
+        }
+
+        const user = userResult.recordset[0];
+        if (user.password !== password) {
+            return apiResponse(res, 401, null, 'Incorrect password');
+        }
+
+        apiResponse(res, 200, user, 'Logged in successfully');
     } catch (error) {
-        apiResponse(res, 500, null, 'Error querying the database');
+        console.error(error);
+        apiResponse(res, 500, null, 'Failed to login due to server error');
     }
 });
 
-// 2. Lấy danh sách môn học theo khoa
-router.get('/subjects/:khoaId', async (req, res) => {
+// lay khoa
+router.get('/get_khoa/:khoaId', async (req, res) => {
+    const { khoaId } = req.params; // Get khoaId from URL parameter
+
     try {
         const db = await dbConnect();
-        console.log(req.params.khoaId);
-        const result = await db.query('SELECT m.mon_hoc_id, m.ten_mon_hoc, m.so_tc, b.ten_bo_mon FROM mon_hoc m JOIN bo_mon b ON m.bo_mon_id = b.bo_mon_id WHERE b.khoa_id = ?', [req.params.khoaId]);
-        apiResponse(res, 200, result.recordset, 'List of subjects retrieved successfully');
+        const result = await db.request()
+            .input('khoaId', sql.NVarChar, khoaId)
+            .query('SELECT khoa_id, ten_khoa, mota FROM khoa WHERE khoa_id = @khoaId');
+
+        if (result.recordset.length === 0) {
+            return apiResponse(res, 404, null, 'Khoa not found');
+        }
+
+        const khoaInfo = result.recordset[0];
+        apiResponse(res, 200, khoaInfo, 'Khoa information retrieved successfully');
     } catch (error) {
-        apiResponse(res, 500, null, 'Error querying the database');
+        console.error('Database query error:', error);
+        apiResponse(res, 500, null, 'Failed to retrieve khoa due to server error');
     }
 });
 
-// 3. Lấy danh sách các lớp học phần mở cho đăng ký
-router.get('/class-registrations', async (req, res) => {
+
+// sinh vien
+router.get('/get_sinh_vien/:sinhVienId', async (req, res) => {
+    const { sinhVienId } = req.params; // Receive sinhVienId from URL parameter
+
     try {
         const db = await dbConnect();
-        const result = await db.query('SELECT l.lop_hp_id, l.ten_lop, l.si_so, m.ten_mon_hoc, k.nam_hoc, k.ki_hoc FROM lop_hp l JOIN mon_hoc_dang_ki mk ON l.mh_ki_id = mk.mh_ki_hoc_id JOIN mon_hoc m ON mk.mon_hoc_id = m.mon_hoc_id JOIN ki_hoc k ON mk.ki_hoc_id = k.ki_hoc_id');
-        apiResponse(res, 200, result.recordset, 'Class registrations retrieved successfully');
+        const result = await db.request()
+            .input('sinhVienId', sql.NVarChar, sinhVienId.toLowerCase())
+            .query('SELECT sinh_vien_id, tai_khoan_id, khoa_id FROM sinh_vien WHERE sinh_vien_id = @sinhVienId');
+
+        if (result.recordset.length === 0) {
+            return apiResponse(res, 404, null, 'Sinh viên not found');
+        }
+
+        const sinhVienInfo = result.recordset[0];
+        apiResponse(res, 200, sinhVienInfo, 'Sinh viên information retrieved successfully');
     } catch (error) {
-        apiResponse(res, 500, null, 'Error querying the database');
+        console.error('Database query error:', error);
+        apiResponse(res, 500, null, 'Failed to retrieve sinh viên due to server error');
     }
 });
 
-// 4. Đăng ký một lớp học phần cho sinh viên
-router.post('/register-class', async (req, res) => {
+
+// giang vien
+router.get('/get-giang-vien/:giangVienId', async (req, res) => {
+    const { giangVienId } = req.params; // Nhận giangVienId từ URL parameter
+
     try {
         const db = await dbConnect();
-        const result = await db.query('INSERT INTO dang_ki (dang_ki_id, sinh_vien_id, lop_hp_id) VALUES (?, ?, ?)', [req.body.dang_ki_id, req.body.sinh_vien_id, req.body.lop_hp_id]);
-        apiResponse(res, 200, result.recordset, 'Registration successful');
+        const result = await db.request()
+            .input('giangVienId', sql.NVarChar, giangVienId)
+            .query('SELECT giang_vien_id, bo_mon_id, tai_khoan_id FROM giang_vien WHERE giang_vien_id = @giangVienId');
+
+        if (result.recordset.length === 0) {
+            return apiResponse(res, 404, null, 'Giảng viên not found');
+        }
+
+        const giangVienInfo = result.recordset[0];
+        apiResponse(res, 200, giangVienInfo, 'Giảng viên information retrieved successfully');
     } catch (error) {
-        apiResponse(res, 500, null, 'Error registering class');
+        console.error('Database query error:', error);
+        apiResponse(res, 500, null, 'Failed to retrieve giảng viên due to server error');
     }
 });
 
-// 5. Xem danh sách các lớp học phần mà sinh viên đã đăng ký
-router.get('/registrations/:sinhVienId', async (req, res) => {
+// bo mon
+router.get('/bo-mon/:boMonId', async (req, res) => {
+    const { boMonId } = req.params; // Retrieve boMonId from URL parameters
+
     try {
         const db = await dbConnect();
-        const result = await db.query('SELECT d.dang_ki_id, l.ten_lop, m.ten_mon_hoc, k.nam_hoc, k.ki_hoc FROM dang_ki d JOIN lop_hp l ON d.lop_hp_id = l.lop_hp_id JOIN mon_hoc_dang_ki mk ON l.mh_ki_id = mk.mh_ki_hoc_id JOIN mon_hoc m ON mk.mon_hoc_id = m.mon_hoc_id JOIN ki_hoc k ON mk.ki_hoc_id = k.ki_hoc_id WHERE d.sinh_vien_id = ?', [req.params.sinhVienId]);
-        apiResponse(res, 200, result.recordset, 'Registrations retrieved successfully');
+        const result = await db.request()
+            .input('boMonId', sql.NVarChar, boMonId)
+            .query('SELECT bo_mon_id, ten_bo_mon, khoa_id FROM bo_mon WHERE bo_mon_id = @boMonId');
+
+        if (result.recordset.length === 0) {
+            return apiResponse(res, 404, null, 'Bộ môn not found');
+        }
+
+        const boMonInfo = result.recordset[0];
+        apiResponse(res, 200, boMonInfo, 'Bộ môn information retrieved successfully');
     } catch (error) {
-        apiResponse(res, 500, null, 'Error querying the database');
+        console.error('Database query error:', error);
+        apiResponse(res, 500, null, 'Failed to retrieve bộ môn due to server error');
     }
 });
 
-// 6. Xoá đăng ký một lớp học phần
-router.delete('/unregister-class/:dangKiId', async (req, res) => {
+// mon hoc
+router.get('/mon-hoc/:monHocId', async (req, res) => {
+    const { monHocId } = req.params;  // Get course ID from URL parameters
+
     try {
         const db = await dbConnect();
-        const result = await db.query('DELETE FROM dang_ki WHERE dang_ki_id = ?', [req.params.dangKiId]);
-        apiResponse(res, 200, result.recordset, 'Registration deleted successfully');
+        const query = `
+            SELECT mon_hoc_id, so_tc, ten_mon_hoc, bo_mon_id 
+            FROM mon_hoc 
+            WHERE mon_hoc_id = @monHocId`;
+        const result = await db.request()
+            .input('monHocId', sql.NVarChar, monHocId)
+            .query(query);
+
+        if (result.recordset.length === 0) {
+            res.status(404).json({ message: 'Course not found' });
+        } else {
+            res.status(200).json(result.recordset[0]);
+        }
     } catch (error) {
-        apiResponse(res, 500, null, 'Error deleting registration');
+        console.error('Database query error:', error);
+        res.status(500).json({ message: 'Failed to retrieve course due to server error' });
     }
 });
 
-// 7. Cập nhật thông tin đăng ký
-router.put('/update-registration/:dangKiId', async (req, res) => {
+// phong hoc
+router.get('/phong-hoc/:phongHocId', async (req, res) => {
+    const { phongHocId } = req.params;  // Lấy ID phòng học từ URL parameters
+        console.log(phongHocId)
     try {
         const db = await dbConnect();
-        const result = await db.query('UPDATE dang_ki SET lop_hp_id = ? WHERE dang_ki_id = ?', [req.body.lop_hp_id, req.params.dangKiId]);
-        apiResponse(res, 200, result.recordset, 'Registration updated successfully');
+        const query = `
+            SELECT phong_hoc_id, ten_phong, si_so_max, toa_nha_id
+            FROM phong_hoc 
+            WHERE phong_hoc_id = @phongHocId`;
+        const result = await db.request()
+            .input('phongHocId', sql.NVarChar, phongHocId)
+            .query(query);
+
+        if (result.recordset.length === 0) {
+            res.status(404).json({ message: 'Phòng học not found' });
+        } else {
+            res.status(200).json(result.recordset[0]);
+        }
     } catch (error) {
-        apiResponse(res, 500, null, 'Error updating registration');
+        console.error('Database query error:', error);
+        res.status(500).json({ message: 'Failed to retrieve phòng học due to server error' });
     }
 });
 
-// 8. Xem điểm của sinh viên theo các môn đã đăng ký
-router.get('/student-grades/:sinhVienId', async (req, res) => {
+
+router.get('/toa-nha/:toaNhaId', async (req, res) => {
+    const { toaNhaId } = req.params; // Lấy ID tòa nhà từ URL parameters
+
     try {
         const db = await dbConnect();
-        const result = await db.query('SELECT m.ten_mon_hoc, k.diem, dd.ten_dau_diem FROM ket_qua k JOIN dau_diem_mon_hoc ddmh ON k.dau_diemmh_id = ddmh.diem_mh_id JOIN mon_hoc m ON ddmh.mon_hoc_id = m.mon_hoc_id JOIN dau_diem dd ON ddmh.dau_diem_id = dd.dau_diem_id WHERE k.dky_id IN (SELECT dang_ki_id FROM dang_ki WHERE sinh_vien_id = ?)', [req.params.sinhVienId]);
-        apiResponse(res, 200, result.recordset, 'Student grades retrieved successfully');
+        const query = `
+            SELECT toa_nha_id, ten
+            FROM toa_nha
+            WHERE toa_nha_id = @toaNhaId`;
+        const result = await db.request()
+            .input('toaNhaId', sql.NVarChar, toaNhaId)
+            .query(query);
+
+        if (result.recordset.length === 0) {
+            res.status(404).json({ message: 'Tòa nhà not found' });
+        } else {
+            res.status(200).json(result.recordset[0]);
+        }
     } catch (error) {
-        apiResponse(res, 500, null, 'Error querying student grades');
+        console.error('Database query error:', error);
+        res.status(500).json({ message: 'Failed to retrieve tòa nhà due to server error' });
     }
 });
-
-//DELETE
-router.delete('/delete-all', async (req, res) => {
-    try {
-        const db = await dbConnect();
-        await db.beginTransaction();
-        const queries = `
-            DELETE FROM thoi_khoa_bieu;
-            DELETE FROM ket_qua;
-            DELETE FROM dang_ki;
-            DELETE FROM dau_diem_mon_hoc;
-            DELETE FROM lop_hp;
-            DELETE FROM mon_hoc_dang_ki;
-            DELETE FROM mon_hoc;
-            DELETE FROM giang_vien;
-            DELETE FROM bo_mon;
-            DELETE FROM phong_hoc;
-            DELETE FROM sinh_vien;
-            DELETE FROM khoa;
-            DELETE FROM tai_khoan;
-            DELETE FROM toa_nha;
-            DELETE FROM dau_diem;
-            DELETE FROM ki_hoc;
-        `;
-        await db.query(queries);
-        await db.commit();
-        apiResponse(res, 200, null, 'All data deleted successfully');
-    } catch (error) {
-        await db.rollback();
-        apiResponse(res, 500, null, 'Error occurred, transaction rolled back');
-    }
-});
-
 module.exports = router;

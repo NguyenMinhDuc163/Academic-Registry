@@ -2,65 +2,50 @@ API Documentation
 
 http://localhost:3000/api/v1
 
-1. Get Courses
+1. Đăng nhập
 
-    GET /courses
-    Retrieves a list of all courses.
-    Success Response: 200 OK with list of courses.
-    Error Response: 500 Internal Server Error
+    URL: /login
+    Phương thức: POST
+    request body:
 
-2. Get Subjects by Department
+    json
 
-    GET /subjects/:khoaId
-    Retrieves subjects offered by a specific department.
-    Parameters: khoaId - Department ID
-    Success Response: 200 OK with subject details.
-    Error Response: 500 Internal Server Error
+    {
+      "username": "string",
+      "password": "string"
+    }
 
-3. Class Registration Listing
+2. Lấy thông tin khoa
 
-    GET /class-registrations
-    Retrieves all classes available for registration.
-    Success Response: 200 OK with class details.
-    Error Response: 500 Internal Server Error
+    URL: /get_khoa/:khoaId
+    Phương thức: GET
 
-4. Register for a Class
+3. Lấy thông tin sinh viên
 
-    POST /register-class
-    Registers a student for a class.
-    Data Required: { "dang_ki_id": "string", "sinh_vien_id": "string", "lop_hp_id": "string" }
-    Success Response: 200 OK with registration confirmation.
-    Error Response: 500 Internal Server Error
+    URL: /get_sinh_vien/:sinhVienId
+    Phương thức: GET
 
-5. Student's Registered Classes
+4. Lấy thông tin giảng viên
 
-    GET /registrations/:sinhVienId
-    Retrieves all classes a student has registered for.
-    Parameters: sinhVienId - Student ID
-    Success Response: 200 OK with list of registered classes.
-    Error Response: 500 Internal Server Error
+    URL: /get-giang-vien/:giangVienId
+    Phương thức: GET
 
-6. Unregister a Class
+5. Lấy thông tin bộ môn
 
-    DELETE /unregister-class/:dangKiId
-    Unregisters a student from a class.
-    Parameters: dangKiId - Registration ID
-    Success Response: 200 OK with deletion confirmation.
-    Error Response: 500 Internal Server Error
+    URL: /bo-mon/:boMonId
+    Phương thức: GET
 
-7. Update Class Registration
+6. Lấy thông tin môn học
 
-    PUT /update-registration/:dangKiId
-    Updates an existing class registration.
-    Data Required: { "lop_hp_id": "string" }
-    Parameters: dangKiId - Registration ID
-    Success Response: 200 OK with update confirmation.
-    Error Response: 500 Internal Server Error
+    URL: /mon-hoc/:monHocId
+    Phương thức: GET
 
-8. Student Grades
+7. Lấy thông tin phòng học
 
-    GET /student-grades/:sinhVienId
-    Retrieves grades for a student's registered subjects.
-    Parameters: sinhVienId - Student ID
-    Success Response: 200 OK with grades details.
-    Error Response: 500 Internal Server Error
+    URL: /phong-hoc/:phongHocId
+    Phương thức: GET
+
+8. Lấy thông tin tòa nhà
+
+    URL: /toa-nha/:toaNhaId
+    Phương thức: GET
