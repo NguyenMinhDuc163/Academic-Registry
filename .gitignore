@@ -8,4 +8,5 @@ build/
 coverage/
 .cache/
 *.log
+.requimentAPI.txt
 database/

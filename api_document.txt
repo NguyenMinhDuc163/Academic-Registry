@@ -7,45 +7,130 @@ http://localhost:3000/api/v1
     URL: /login
     Phương thức: POST
     request body:
+    request body:
+        {
+          "username": "string",
+          "password": "string"
+        }
+
+2. Lấy tất cả khóa học
+
+    URL: /all-course
+    Phương thức: GET
+
+3. Đăng ký môn học
+
+    URL: /dang-ki
+    Phương thức: POST
+
+    Request body:
+       {
+           "sinh_vien_id": "String",
+           "danh_sach_mon_hoc": "Array"
+       }
+
+4. Xóa đăng ký môn học
+
+    URL: /dang_ki
+    Phương thức: DELETE
+    Request body:
+    {
+        "sinh_vien_id": "B21DCCN201",
+        "mon_hoc_id": "BAS1151"
+    }
+
+
+5. Cập nhật đăng ký
+
+    URL: /dang_ki
+    Phương thức: PUT
+    Request body:
+
+    {
+        "sinh_vien_id": "B21DCCN201",
+        "mon_hoc_id_cu": "BAS1153",
+        "mon_hoc_id_moi": "BAS1226"
+    }
+
+6. Lấy danh sách môn học đã đăng ký
+
+    URL: /mon-hoc-dky/:sinhVienId
+    Phương thức: GET
+
+Bạn có thể viết cấu trúc API này thành một file README hoặc file tài liệu tương tự. Dưới đây là một ví dụ cho file api_structure.md:
+
+markdown
+
+# API Structure
+
+## 1. Đăng nhập
+- **URL:** `/login`
+- **Phương thức:** `POST`
+- **Request body:**
+  ```json
+  {
+    "username": "string",
+    "password": "string"
+  }
+
+2. Lấy tất cả khóa học
+
+    URL: /all-course
+    Phương thức: GET
+
+3. Đăng ký môn học
+
+    URL: /dang-ki
+    Phương thức: POST
+    Request body:
 
     json
 
     {
-      "username": "string",
-      "password": "string"
+      "sinhVienId": "string",
+      "maLop": "string"
     }
 
-2. Lấy thông tin khoa
+4. Xóa đăng ký môn học
 
-    URL: /get_khoa/:khoaId
+    URL: /dang_ki
+    Phương thức: DELETE
+    Request body:
+
+    json
+
+    {
+      "sinhVienId": "string",
+      "maLop": "string"
+    }
+
+5. Cập nhật đăng ký
+
+    URL: /dang_ki
+    Phương thức: PUT
+    Request body:
+
+    json
+
+    {
+      "sinhVienId": "string",
+      "maLopCu": "string",
+      "maLopMoi": "string"
+    }
+
+6. Lấy danh sách môn học đã đăng ký
+
+    URL: /mon-hoc-dky/:sinhVienId
     Phương thức: GET
 
-3. Lấy thông tin sinh viên
+7. Lấy thời khóa biểu
 
-    URL: /get_sinh_vien/:sinhVienId
+    URL: /thoi-khoa-bieu/:sinh_vien_id
     Phương thức: GET
 
-4. Lấy thông tin giảng viên
+8. Lấy điểm
 
-    URL: /get-giang-vien/:giangVienId
+    URL: /diem
     Phương thức: GET
-
-5. Lấy thông tin bộ môn
-
-    URL: /bo-mon/:boMonId
-    Phương thức: GET
-
-6. Lấy thông tin môn học
-
-    URL: /mon-hoc/:monHocId
-    Phương thức: GET
-
-7. Lấy thông tin phòng học
-
-    URL: /phong-hoc/:phongHocId
-    Phương thức: GET
-
-8. Lấy thông tin tòa nhà
-
-    URL: /toa-nha/:toaNhaId
-    Phương thức: GET
+    Request parameters:
+        sinh_vien_id

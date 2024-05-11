@@ -1,0 +1,12 @@
+api lấy danh sách môn học mở để đăng kí:
+url : /api/v1/courses (get)
+api lấy danh sách môn học đã đăng kí:
+url : /api/v1/:id/courses (get) => :id là id user
+api đăng kí môn học
+url : /api/v1/:id/courses (post) => :id là id user
+body:{
+	courses:[] => danh sách id của môn học
+}
+api lấy điểm của sv
+url : /api/v1/:id/courses/result (get)
+
