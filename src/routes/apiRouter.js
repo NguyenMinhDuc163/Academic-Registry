@@ -9,7 +9,7 @@ const router = express.Router();
 // login
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
-
+    console.log( username, password );
     try {
         const db = await dbConnect();
         const userResult = await db.request()
