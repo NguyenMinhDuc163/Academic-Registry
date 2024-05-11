@@ -257,9 +257,9 @@ router.get('/mon-hoc-dky/:sinhVienId', async (req, res) => {
         // Kết nối cơ sở dữ liệu
         const db = await dbConnect();
 
-        // Câu truy vấn lấy dữ liệu
+        // Câu truy vấn cập nhật để lấy thêm mã môn học
         const query = `
-            SELECT d.dang_ki_id, l.ten_lop, m.ten_mon_hoc, k.nam_hoc, k.ki_hoc
+            SELECT d.dang_ki_id, l.ten_lop, m.ten_mon_hoc, m.mon_hoc_id, k.nam_hoc, k.ki_hoc
             FROM dang_ki d
             JOIN lop_hp l ON d.lop_hp_id = l.lop_hp_id
             JOIN mon_hoc_dang_ki mk ON l.mh_ki_id = mk.mh_ki_hoc_id
@@ -275,17 +275,14 @@ router.get('/mon-hoc-dky/:sinhVienId', async (req, res) => {
 
         // Xử lý kết quả trả về
         if (result.recordset.length === 0) {
-            apiResponse(res, 404, null, 'Khong tim thay mon hoc cho sinh vien');
+            apiResponse(res, 404, null, 'Không tìm thấy môn học cho sinh viên');
         } else {
-            // res.status(200).json(result.recordset);
-            apiResponse(res, 200, result.recordset, 'Danh sach mon hoc sinh vien da dang ky');
+            apiResponse(res, 200, result.recordset, 'Danh sách môn học sinh viên đã đăng ký');
         }
 
     } catch (error) {
         console.error('Database query error:', error);
-        // res.status(500).json({ message: 'Failed to retrieve courses due to server error' });
-        apiResponse(res, 500, null, 'Loi khi lay du lieu mon hoc da dang ky');
-
+        apiResponse(res, 500, null, 'Lỗi khi lấy dữ liệu môn học đã đăng ký');
     }
 });
 
