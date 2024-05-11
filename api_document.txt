@@ -71,5 +71,5 @@ http://localhost:3000/api/v1
 
 8. Lấy điểm theo ki
 
-    URL: /student-scores/:sinh_vien_id/:ki_hoc
+    URL: /diem-ki/:sinh_vien_id/:ki_hoc
     Phương thức: GET
