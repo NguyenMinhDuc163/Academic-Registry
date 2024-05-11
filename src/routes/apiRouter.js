@@ -404,4 +404,40 @@ router.get('/diem', async (req, res) => {
     }
 });
 
+// Lay diem theo ki hoc
+router.get('/diem-ki/:sinh_vien_id/:ki_hoc', async (req, res) => {
+    const { sinh_vien_id, ki_hoc } = req.params;
+
+    try {
+        const db = await dbConnect();
+        const query = `
+            SELECT 
+                kq.diem,
+                mh.ten_mon_hoc
+            FROM 
+                ket_qua kq
+                JOIN dang_ki dk ON kq.dky_id = dk.dang_ki_id
+                JOIN lop_hp lhp ON dk.lop_hp_id = lhp.lop_hp_id
+                JOIN mon_hoc_dang_ki mhdk ON lhp.mh_ki_id = mhdk.mh_ki_hoc_id
+                JOIN mon_hoc mh ON mhdk.mon_hoc_id = mh.mon_hoc_id
+                JOIN ki_hoc kh ON mhdk.ki_hoc_id = kh.ki_hoc_id
+            WHERE 
+                dk.sinh_vien_id = @sinh_vien_id
+                AND kh.ki_hoc = @ki_hoc`;
+
+        const result = await db.request()
+            .input('sinh_vien_id', sql.NVarChar, sinh_vien_id)
+            .input('ki_hoc', sql.NVarChar, ki_hoc)
+            .query(query);
+
+        if (result.recordset.length === 0) {
+            apiResponse(res, 404, null, 'Không tìm thấy điểm cho sinh viên trong kỳ học đã chỉ định');
+        } else {
+            apiResponse(res, 200, result.recordset, 'Điểm của sinh viên');
+        }
+    } catch (error) {
+        console.error('Database query error:', error);
+        apiResponse(res, 500, null, 'Lỗi khi lấy dữ liệu điểm của sinh viên');
+    }
+});
 module.exports = router;

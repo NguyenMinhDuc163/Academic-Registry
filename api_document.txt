@@ -68,3 +68,8 @@ http://localhost:3000/api/v1
     Phương thức: GET
     Request parameters:
         sinh_vien_id
+
+8. Lấy điểm theo ki
+
+    URL: /student-scores/:sinh_vien_id/:ki_hoc
+    Phương thức: GET
