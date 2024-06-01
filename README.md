@@ -58,8 +58,8 @@ Cơ sở dữ liệu được thiết kế chi tiết với các bảng chính b
 
 ## Liên Hệ
 - **Nhóm Phát Triển:**
+- - Nguyễn Minh Đức - B21DCCN249
   - Đỗ Tuấn Kiệt - B21DCCN470
-  - Nguyễn Minh Đức - B21DCCN249
   - Ngô Hải Đăng - B21DCCN201
   - Đặng Tiến Dũng - B21DCCN263
   - Nguyễn Nhật Minh - B21DCCN527
@@ -69,12 +69,20 @@ Cơ sở dữ liệu được thiết kế chi tiết với các bảng chính b
 
 Hà Nội, 2024
 
+- **Xem Demo:** [Link tới web demo](https://7syvtm-5173.csb.app/home)
+   (Kết nối với BE port 3000 để chạy demo )
 ## Hình Ảnh Minh Họa
 ### Giao Diện Đăng Nhập
 ![Giao Diện Đăng Nhập](image/login.png)
 
 ### Giao Diện Quản Lý Thông Tin Sinh Viên
-![Giao Diện Quản Lý Thông Tin Sinh Viên](path/to/student_management_screenshot.png)
+![Giao Diện Quản Lý Thông Tin Sinh Viên](image/home.png)
 
 ### Giao Diện Đăng Ký Môn Học
-![Giao Diện Đăng Ký Môn Học](path/to/course_registration_screenshot.png)
+![Giao Diện Đăng Ký Môn Học](image/register.png)
+
+### Giao Diện thời khoá biểu 
+![Giao Diện thời khoá biểu ](image/tkb.png)
+
+### Cơ sở dữ liệu 
+![DATA BASE](https://drive.google.com/drive/u/2/folders/1mVCRttTYw1iqtXlr7DlolEoOR23rOJOq)
