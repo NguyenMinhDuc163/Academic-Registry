@@ -1,0 +1,13 @@
+diff --git a/node_modules/@mui/material/TextField/TextField.d.ts b/node_modules/@mui/material/TextField/TextField.d.ts
+index 727ab30..ba5b701 100644
+--- a/node_modules/@mui/material/TextField/TextField.d.ts
++++ b/node_modules/@mui/material/TextField/TextField.d.ts
+@@ -48,7 +48,7 @@ export interface BaseTextFieldProps
+    * @default 'primary'
+    */
+   color?: OverridableStringUnion<
+-    'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning',
++    'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning'|'ochre',
+     TextFieldPropsColorOverrides
+   >;
+   /**

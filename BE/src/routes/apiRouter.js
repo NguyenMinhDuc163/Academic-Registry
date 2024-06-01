@@ -53,6 +53,28 @@ router.get('/all-course', async (req, res) => {
 
 // dang ki mon hoc
 
+// router.post('/dang-ki', async (req, res) => {
+//     const { sinh_vien_id, danh_sach_mon_hoc } = req.body;
+//
+//     if (!sinh_vien_id || !Array.isArray(danh_sach_mon_hoc) || danh_sach_mon_hoc.length === 0) {
+//         return apiResponse(res, 400, null, 'Thiếu hoặc dữ liệu đầu vào không hợp lệ');
+//     }
+//
+//     try {
+//         const db = await dbConnect();
+//         const result = await db.request()
+//             .input('sinh_vien_id', sql.NVarChar, sinh_vien_id)
+//             .input('danh_sach_mon_hoc', sql.NVarChar, danh_sach_mon_hoc.join(','))
+//             .execute('sp_DangKiMonHoc');
+//
+//         const resultMessages = result.recordset[0].resultMessages;
+//         apiResponse(res, 201, resultMessages, 'Kết quả đăng ký');
+//     } catch (error) {
+//         console.error('Lỗi khi gọi stored procedure:', error);
+//         apiResponse(res, 500, null, 'Lỗi máy chủ khi đăng ký môn học');
+//     }
+// });
+
 router.post('/dang-ki', async (req, res) => {
     const { sinh_vien_id, danh_sach_mon_hoc } = req.body;
 
@@ -62,19 +84,88 @@ router.post('/dang-ki', async (req, res) => {
 
     try {
         const db = await dbConnect();
-        const result = await db.request()
-            .input('sinh_vien_id', sql.NVarChar, sinh_vien_id)
-            .input('danh_sach_mon_hoc', sql.NVarChar, danh_sach_mon_hoc.join(','))
-            .execute('sp_DangKiMonHoc');
+        const transaction = new sql.Transaction(db);
+        await transaction.begin();
 
-        const resultMessages = result.recordset[0].resultMessages;
-        apiResponse(res, 201, resultMessages, 'Kết quả đăng ký');
+        const request = new sql.Request(transaction);
+
+        // Kiểm tra sinh viên tồn tại
+        const checkSinhVien = await request.query(`SELECT 1 FROM sinh_vien WHERE sinh_vien_id = '${sinh_vien_id}'`);
+        if (checkSinhVien.recordset.length === 0) {
+            throw new Error('Sinh viên không tồn tại');
+        }
+
+        const resultMessages = [];
+
+        // Khai báo các bảng tạm
+        const daysOfWeek = ['2024-05-13', '2024-05-14', '2024-05-15'];
+        const kips = ['Sáng', 'Chiều'];
+        const weeks = ['Từ tuần 1 đến 16', 'Từ tuần 5 đến 20', 'Từ tuần 10 đến 26'];
+
+        for (const mon_hoc_id of danh_sach_mon_hoc) {
+            // Tìm lớp học phần tương ứng
+            const findLopHp = await request.query(`
+                SELECT TOP 1 lop_hp.lop_hp_id
+                FROM lop_hp
+                JOIN mon_hoc_dang_ki ON lop_hp.mh_ki_id = mon_hoc_dang_ki.mh_ki_hoc_id
+                WHERE mon_hoc_dang_ki.mon_hoc_id = '${mon_hoc_id}'
+            `);
+            if (findLopHp.recordset.length === 0) {
+                resultMessages.push(`Không tìm thấy lớp học phần cho môn học ${mon_hoc_id}`);
+                continue;
+            }
+            const lop_hp_id = findLopHp.recordset[0].lop_hp_id;
+
+            // Tạo ID mới cho bảng đăng ký
+            const newDangKiIdResult = await request.query(`
+                SELECT CONCAT('DK', FORMAT(ISNULL(MAX(CAST(SUBSTRING(dang_ki_id, 3, LEN(dang_ki_id) - 2) AS INT)), 0) + 1, '00')) AS new_dang_ki_id
+                FROM dang_ki
+            `);
+            const new_dang_ki_id = newDangKiIdResult.recordset[0].new_dang_ki_id;
+
+            // Kiểm tra xem sinh viên đã đăng ký lớp học phần này chưa
+            const checkDangKi = await request.query(`
+                SELECT 1 FROM dang_ki WHERE sinh_vien_id = '${sinh_vien_id}' AND lop_hp_id = '${lop_hp_id}'
+            `);
+            if (checkDangKi.recordset.length > 0) {
+                resultMessages.push(`Sinh viên đã đăng ký lớp học phần ${lop_hp_id}`);
+                continue;
+            }
+
+            // Chèn vào bảng đăng ký
+            await request.query(`
+                INSERT INTO dang_ki (dang_ki_id, sinh_vien_id, lop_hp_id)
+                VALUES ('${new_dang_ki_id}', '${sinh_vien_id}', '${lop_hp_id}')
+            `);
+            resultMessages.push(`Đã đăng ký thành công lớp học phần ${lop_hp_id}`);
+
+            // Tạo ID cho thời khóa biểu mới
+            const newTkbIdResult = await request.query(`
+                SELECT CONCAT('TKB', FORMAT(ISNULL(MAX(CAST(SUBSTRING(tkb_id, 4, LEN(tkb_id) - 3) AS INT)), 0) + 1, '00')) AS new_tkb_id
+                FROM thoi_khoa_bieu
+            `);
+            const new_tkb_id = newTkbIdResult.recordset[0].new_tkb_id;
+
+            // Lựa chọn ngẫu nhiên các giá trị ngày, kíp, và tuần
+            const ngay = daysOfWeek[Math.floor(Math.random() * daysOfWeek.length)];
+            const kip = kips[Math.floor(Math.random() * kips.length)];
+            const tuan = weeks[Math.floor(Math.random() * weeks.length)];
+
+            // Cập nhật thời khóa biểu với thông tin phòng học ngẫu nhiên
+            await request.query(`
+                INSERT INTO thoi_khoa_bieu (tkb_id, lop_hp_id, ngay, kip, phong_hoc_id, tuan)
+                VALUES ('${new_tkb_id}', '${lop_hp_id}', '${ngay}', '${kip}', 'PH01', '${tuan}')
+            `);
+        }
+
+        await transaction.commit();
+
+        apiResponse(res, 201, resultMessages.join('. '), 'Kết quả đăng ký');
     } catch (error) {
-        console.error('Lỗi khi gọi stored procedure:', error);
+        console.error('Lỗi khi thực hiện đăng ký môn học:', error);
         apiResponse(res, 500, null, 'Lỗi máy chủ khi đăng ký môn học');
     }
 });
-
 
 router.delete('/dang_ki', async (req, res) => {
     const { sinh_vien_id, mon_hoc_id } = req.body;
@@ -209,7 +300,9 @@ router.get('/diem', async (req, res) => {
             }
             acc[item.ten_mon_hoc].push({
                 diem: item.diem,
-                ten_dau_diem: item.ten_dau_diem
+                ten_dau_diem: item.ten_dau_diem,
+                mon_hoc_id: item.mon_hoc_id,
+                so_tc: item.so_tc
             });
             return acc;
         }, {});

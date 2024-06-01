@@ -1,0 +1,9 @@
+.subLogo::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 250px;
+  z-index: 1;
+  border-right: 50px solid transparent;
+  border-top: 68px solid white; /* Đổi màu tùy ý */
+}

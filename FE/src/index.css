@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  font-family: "Roboto", "Noto Sans";
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color:red;
+}
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: #fd0303;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fd0303;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff0000b9;
+}

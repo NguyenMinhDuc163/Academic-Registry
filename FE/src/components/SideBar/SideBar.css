@@ -1,0 +1,7 @@
+.parent {
+  height: 70px;
+  transition: height 0.6s;
+}
+.parent-height {
+  height: 200px;
+}

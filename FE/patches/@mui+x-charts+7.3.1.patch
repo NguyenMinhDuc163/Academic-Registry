@@ -1,0 +1,12 @@
+diff --git a/node_modules/@mui/x-charts/models/axis.d.ts b/node_modules/@mui/x-charts/models/axis.d.ts
+index 3e856ce..a887e33 100644
+--- a/node_modules/@mui/x-charts/models/axis.d.ts
++++ b/node_modules/@mui/x-charts/models/axis.d.ts
+@@ -220,6 +220,7 @@ export type AxisConfig<S extends ScaleName = ScaleName, V = any> = {
+     /**
+      * Id used to identify the axis.
+      */
++    categoryGapRatio:number;
+     id: AxisId;
+     /**
+      * The minimal value of the domain.

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../CSDLPTWEB/FE/CSDLPT/.idea/CSDLPT.iml" filepath="$PROJECT_DIR$/../CSDLPTWEB/FE/CSDLPT/.idea/CSDLPT.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Server_QLDT.iml" filepath="$PROJECT_DIR$/.idea/Server_QLDT.iml" />
     </modules>
   </component>
