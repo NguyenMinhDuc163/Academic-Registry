@@ -71,7 +71,7 @@ Hà Nội, 2024
 
 ## Hình Ảnh Minh Họa
 ### Giao Diện Đăng Nhập
-![Giao Diện Đăng Nhập](path/to/login_screenshot.png)
+![Giao Diện Đăng Nhập](image/login.png)
 
 ### Giao Diện Quản Lý Thông Tin Sinh Viên
 ![Giao Diện Quản Lý Thông Tin Sinh Viên](path/to/student_management_screenshot.png)
