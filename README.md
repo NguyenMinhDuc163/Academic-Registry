@@ -85,4 +85,4 @@ Hà Nội, 2024
 ![Giao Diện thời khoá biểu ](image/tkb.png)
 
 ### Cơ sở dữ liệu 
-![DATA BASE](https://drive.google.com/drive/u/2/folders/1mVCRttTYw1iqtXlr7DlolEoOR23rOJOq)
+[DATA BASE](https://drive.google.com/drive/u/2/folders/1mVCRttTYw1iqtXlr7DlolEoOR23rOJOq)
