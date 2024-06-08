@@ -20,7 +20,7 @@ Dự án này là một hệ thống cơ sở dữ liệu phân tán được th
 - **Đăng ký môn học:** Sinh viên có thể đăng ký môn học qua hệ thống.
 - **Quản lý thời khóa biểu:** Hiển thị thời khóa biểu cho sinh viên và giảng viên.
 - **Quản lý điểm:** Nhập và xem điểm của sinh viên.
-
+ 
 ## Kiến Trúc Hệ Thống
 Hệ thống được thiết kế với kiến trúc phân tán nhằm đáp ứng nhu cầu lưu trữ và truy cập dữ liệu lớn, đồng thời đảm bảo hiệu suất cao và tính sẵn sàng của hệ thống. Các thành phần chính bao gồm:
 
