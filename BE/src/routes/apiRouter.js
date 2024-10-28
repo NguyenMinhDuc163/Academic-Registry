@@ -39,13 +39,13 @@ router.get('/all-course', async (req, res) => {
         const result = await db.request().execute('sp_GetAllCourses');
 
         if (result.recordset.length === 0) {
-            apiResponse(res, 404, null, 'Khong tim thay du lieu trong bang mon_hoc');
+            apiResponse(res, 404, null, 'Không tìm thấy dữ liệu trong bảng mon_hoc');
         } else {
-            apiResponse(res, 200, result.recordset, 'Danh sach mon hoc');
+            apiResponse(res, 200, result.recordset, 'Danh sách môn học');
         }
     } catch (error) {
         console.error('Database query error:', error);
-        apiResponse(res, 500, null, 'Loi khi lay du lieu mon hoc');
+        apiResponse(res, 500, null, 'Lỗi khi lấy dữ liệu môn học');
     }
 });
 
@@ -79,6 +79,7 @@ router.post('/dang-ki', async (req, res) => {
     const { sinh_vien_id, danh_sach_mon_hoc } = req.body;
 
     if (!sinh_vien_id || !Array.isArray(danh_sach_mon_hoc) || danh_sach_mon_hoc.length === 0) {
+        console.log('Dữ liệu đầu vào không hợp lệ');
         return apiResponse(res, 400, null, 'Thiếu hoặc dữ liệu đầu vào không hợp lệ');
     }
 
@@ -92,29 +93,30 @@ router.post('/dang-ki', async (req, res) => {
         // Kiểm tra sinh viên tồn tại
         const checkSinhVien = await request.query(`SELECT 1 FROM sinh_vien WHERE sinh_vien_id = '${sinh_vien_id}'`);
         if (checkSinhVien.recordset.length === 0) {
+            console.log(`Sinh viên với ID ${sinh_vien_id} không tồn tại`);
             throw new Error('Sinh viên không tồn tại');
         }
 
         const resultMessages = [];
-
-        // Khai báo các bảng tạm
-        const daysOfWeek = ['2024-05-13', '2024-05-14', '2024-05-15'];
-        const kips = ['Sáng', 'Chiều'];
-        const weeks = ['Từ tuần 1 đến 16', 'Từ tuần 5 đến 20', 'Từ tuần 10 đến 26'];
+        let successCount = 0;
 
         for (const mon_hoc_id of danh_sach_mon_hoc) {
-            // Tìm lớp học phần tương ứng
+            // Tìm lớp học phần và thời gian học tương ứng trong `mon_hoc`
             const findLopHp = await request.query(`
-                SELECT TOP 1 lop_hp.lop_hp_id
+                SELECT TOP 1 lop_hp.lop_hp_id, mh.ngay, mh.kip, mh.tuan
                 FROM lop_hp
                 JOIN mon_hoc_dang_ki ON lop_hp.mh_ki_id = mon_hoc_dang_ki.mh_ki_hoc_id
-                WHERE mon_hoc_dang_ki.mon_hoc_id = '${mon_hoc_id}'
+                JOIN mon_hoc mh ON mon_hoc_dang_ki.mon_hoc_id = mh.mon_hoc_id
+                WHERE mh.mon_hoc_id = '${mon_hoc_id}'
             `);
+
             if (findLopHp.recordset.length === 0) {
-                resultMessages.push(`Không tìm thấy lớp học phần cho môn học ${mon_hoc_id}`);
+                const message = `Không tìm thấy lớp học phần cho môn học ${mon_hoc_id}`;
+                resultMessages.push(message);
+                console.log(message);
                 continue;
             }
-            const lop_hp_id = findLopHp.recordset[0].lop_hp_id;
+            const { lop_hp_id, ngay, kip, tuan } = findLopHp.recordset[0];
 
             // Tạo ID mới cho bảng đăng ký
             const newDangKiIdResult = await request.query(`
@@ -128,7 +130,27 @@ router.post('/dang-ki', async (req, res) => {
                 SELECT 1 FROM dang_ki WHERE sinh_vien_id = '${sinh_vien_id}' AND lop_hp_id = '${lop_hp_id}'
             `);
             if (checkDangKi.recordset.length > 0) {
-                resultMessages.push(`Sinh viên đã đăng ký lớp học phần ${lop_hp_id}`);
+                const message = `Sinh viên đã đăng ký lớp học phần ${lop_hp_id}`;
+                resultMessages.push(message);
+                console.log(message);
+                continue;
+            }
+
+            // Kiểm tra xung đột lịch với các lớp học phần đã đăng ký
+            const checkConflict = await request.query(`
+                SELECT 1
+                FROM thoi_khoa_bieu tkb
+                JOIN dang_ki dk ON tkb.lop_hp_id = dk.lop_hp_id
+                WHERE dk.sinh_vien_id = '${sinh_vien_id}'
+                  AND tkb.ngay = '${ngay}'
+                  AND tkb.kip = '${kip}'
+                  AND tkb.tuan = '${tuan}'
+            `);
+
+            if (checkConflict.recordset.length > 0) {
+                const message = `Lớp học phần ${lop_hp_id} bị trùng lịch với môn khác trong thời khóa biểu`;
+                resultMessages.push(message);
+                console.log(message);
                 continue;
             }
 
@@ -137,7 +159,10 @@ router.post('/dang-ki', async (req, res) => {
                 INSERT INTO dang_ki (dang_ki_id, sinh_vien_id, lop_hp_id)
                 VALUES ('${new_dang_ki_id}', '${sinh_vien_id}', '${lop_hp_id}')
             `);
-            resultMessages.push(`Đã đăng ký thành công lớp học phần ${lop_hp_id}`);
+            const successMessage = `Đã đăng ký thành công lớp học phần ${lop_hp_id}`;
+            resultMessages.push(successMessage);
+            console.log(successMessage);
+            successCount++;
 
             // Tạo ID cho thời khóa biểu mới
             const newTkbIdResult = await request.query(`
@@ -146,12 +171,7 @@ router.post('/dang-ki', async (req, res) => {
             `);
             const new_tkb_id = newTkbIdResult.recordset[0].new_tkb_id;
 
-            // Lựa chọn ngẫu nhiên các giá trị ngày, kíp, và tuần
-            const ngay = daysOfWeek[Math.floor(Math.random() * daysOfWeek.length)];
-            const kip = kips[Math.floor(Math.random() * kips.length)];
-            const tuan = weeks[Math.floor(Math.random() * weeks.length)];
-
-            // Cập nhật thời khóa biểu với thông tin phòng học ngẫu nhiên
+            // Thêm vào thời khóa biểu với thời gian đã chọn từ `mon_hoc`
             await request.query(`
                 INSERT INTO thoi_khoa_bieu (tkb_id, lop_hp_id, ngay, kip, phong_hoc_id, tuan)
                 VALUES ('${new_tkb_id}', '${lop_hp_id}', '${ngay}', '${kip}', 'PH01', '${tuan}')
@@ -160,12 +180,23 @@ router.post('/dang-ki', async (req, res) => {
 
         await transaction.commit();
 
-        apiResponse(res, 201, resultMessages.join('. '), 'Kết quả đăng ký');
+        // Xác định phản hồi dựa trên số lượng đăng ký thành công
+        if (successCount === 0) {
+            console.log('Không thể đăng ký bất kỳ lớp học phần nào');
+            return apiResponse(res, 400, resultMessages.join('. '), 'Không thể đăng ký bất kỳ lớp học phần nào');
+        } else if (successCount < danh_sach_mon_hoc.length) {
+            console.log('Một số lớp học phần đã đăng ký thành công, một số gặp xung đột');
+            return apiResponse(res, 200, resultMessages.join('. '), 'Một số lớp học phần đã đăng ký thành công, một số gặp xung đột');
+        } else {
+            console.log('Tất cả lớp học phần đã đăng ký thành công');
+            return apiResponse(res, 201, resultMessages.join('. '), 'Tất cả lớp học phần đã đăng ký thành công');
+        }
     } catch (error) {
         console.error('Lỗi khi thực hiện đăng ký môn học:', error);
-        apiResponse(res, 500, null, 'Lỗi máy chủ khi đăng ký môn học');
+        return apiResponse(res, 500, null, 'Lỗi máy chủ khi đăng ký môn học');
     }
 });
+
 
 router.delete('/dang_ki', async (req, res) => {
     const { sinh_vien_id, mon_hoc_id } = req.body;

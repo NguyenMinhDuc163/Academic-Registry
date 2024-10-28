@@ -1,32 +1,44 @@
 require('dotenv').config();
+const dbConnect = require('./src/configs/db.config'); // Ensure this is the correct path to your dbConnect file
 const sql = require('mssql');
 
-const config = {
-    server: process.env.SQLSERVER_DB_HOST,
-    user: process.env.SQLSERVER_DB_USER,
-    password: process.env.SQLSERVER_DB_PASSWORD,
-    database: process.env.SQLSERVER_DB_NAME,
-    options: {
-        encrypt: true,  // for Azure
-        trustServerCertificate: true  // for local development
-    }
-};
+const daysOfWeek = ['2024-11-13','2024-11-20'];
+const kips = ['Sang', 'Chieu'];
+const weeks = ['Tu tuan 1 den 16', 'Tu tuan 10 den 26'];
 
-async function getSinhVienByKhoa(khoaId) {
+async function insertRandomDatesToMonHoc() {
     try {
-        const pool = await sql.connect(config);
-        const result = await pool.request()
-            .input('KhoaID', sql.NVarChar, khoaId)
-            .execute('GetSinhVienByKhoa');
+        const db = await dbConnect();
+        const request = new sql.Request(db);
 
-        console.log(result.recordset); // Hiển thị kết quả trên console
-        return result.recordset;
-    } catch (err) {
-        console.error('Error when calling stored procedure', err);
+        // Lấy danh sách các môn học chưa có thời gian học
+        const monHocList = await request.query(`
+            SELECT mon_hoc_id FROM mon_hoc
+        `);
+
+        for (const monHoc of monHocList.recordset) {
+            // Lựa chọn ngẫu nhiên cho từng môn học
+            const ngay = daysOfWeek[Math.floor(Math.random() * daysOfWeek.length)];
+            const kip = kips[Math.floor(Math.random() * kips.length)];
+            const tuan = weeks[Math.floor(Math.random() * weeks.length)];
+
+            // Cập nhật vào bảng `mon_hoc`
+            await request.query(`
+                UPDATE mon_hoc
+                SET ngay = '${ngay}', kip = '${kip}', tuan = '${tuan}'
+                WHERE mon_hoc_id = '${monHoc.mon_hoc_id}'
+            `);
+
+            console.log(`Đã cập nhật thời gian cho môn học ID: ${monHoc.mon_hoc_id} - Ngày: ${ngay}, Kíp: ${kip}, Tuần: ${tuan}`);
+        }
+
+        console.log('Hoàn tất cập nhật thời gian ngẫu nhiên cho các môn học.');
+    } catch (error) {
+        console.error('Lỗi khi cập nhật thời gian ngẫu nhiên:', error);
     } finally {
-        await sql.close(); // Đóng kết nối
+        sql.close();  // Đảm bảo đóng kết nối SQL sau khi thực hiện xong
     }
 }
 
-// Gọi hàm với ID khoa cụ thể
-getSinhVienByKhoa('K01'); // Thay đổi giá trị này tùy thuộc vào ID khoa trong cơ sở dữ liệu của bạn
+// Gọi hàm để thực hiện cập nhật
+insertRandomDatesToMonHoc();

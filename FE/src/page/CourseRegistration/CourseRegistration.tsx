@@ -14,7 +14,10 @@ export interface ICourse {
   bo_mon_id:string,
   mon_hoc_id:string,
   so_tc:string,
-  ten_mon_hoc:string
+  ten_mon_hoc:string,
+  ngay: string; // Ngày học
+  kip: string;  // Kíp học (Sáng/Chiều)
+  tuan: string; // Tuần học
 }
 
 export interface ICourseRegisted {
@@ -92,7 +95,7 @@ const CourseRegistration = () => {
       toast.success("Đăng kí Thành Công")
     }
     catch(e){
-      toast.error("Đăng kí thất bại")
+      toast.error("Thời gian môn học đã bị trùng lặp vui lòng kiểm tra lại")
     }
     finally{
       dispatch(setLoading(false))
