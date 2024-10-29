@@ -6,16 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="526834bb-e699-4290-bfde-8a95747c3151" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/page/CourseRegistration/CourseRegistration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/CourseRegistration/CourseRegistration.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/page/Score/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/Score/Score.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/page/Score/fake_data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/Score/fake_data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/components/SideBar/SideBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/components/SideBar/SideBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/page/userinfo-page/UserInfor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/userinfo-page/UserInfor.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +81,8 @@
       <workItem from="1730168161282" duration="3540000" />
       <workItem from="1730173111081" duration="23000" />
       <workItem from="1730173849362" duration="2729000" />
-      <workItem from="1730176792304" duration="716000" />
+      <workItem from="1730176792304" duration="903000" />
+      <workItem from="1730209191187" duration="3800000" />
     </task>
     <servers />
   </component>

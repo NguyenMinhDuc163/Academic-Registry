@@ -170,11 +170,11 @@ const SideBar = () => {
               </div>
               <div className="text-mainRed text-[0.9em] flex py-[6px] border-b-[1px] border-solid border-[#CCCC]">
                 <div className="w-[40%]">Ngành</div>
-                <div className=""> Công Nghệ Thông Tin</div>
+                <div className=""> Điện tử viễn thông</div>
               </div>
               <div className="text-mainRed text-[0.9em] flex py-[6px] border-b-[1px] border-solid border-[#CCCC]">
                 <div className="w-[40%]">Khoa</div>
-                <div className=""> Công Nghệ Thông Tin</div>
+                <div className=""> Điện tử viễn thông</div>
               </div>
               {/* <div className="text-mainRed text-[0.9em] flex py-[6px] border-b-[1px] border-solid border-[#CCCC]">
                 <div className="w-[40%]">Lớp</div>

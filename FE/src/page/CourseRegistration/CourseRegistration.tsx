@@ -10,7 +10,14 @@ import ListCourseOpenRegister from "./ListCourseOpenRegister";
 import ListCourseRegisted from "./ListCourseRegisted";
 import * as XLSX from "xlsx";
 
-const OPTION_COURSE = [{ label: "Môn học theo kì học lớp sinh viên" }];
+const OPTION_COURSE = [
+  { label: "Môn học theo kì học lớp sinh viên" },
+  { label: "Môn học mở theo lớp sinh viên" },
+  { label: "Môn học trong chương trình đào tạo kế hoạch" },
+  { label: "Môn học chưa học trong CTDT kế hoạch" },
+  { label: "Môn học sinh viên cần học lại (Đã rớt)" },
+  { label: "Lọc theo khoa quản lý môn học" },
+];
 
 export interface ICourse {
   bo_mon_id: string;
@@ -33,8 +40,11 @@ export interface ICourseRegisted {
 
 const CourseRegistration = () => {
   const [courses, setCourses] = useState<ICourse[]>([]);
+  const [filteredCourses, setFilteredCourses] = useState<ICourse[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [listCourseChecked, setListCourseChecked] = useState<string[]>([]);
   const [listCourseRegisted, setListCourseRegisted] = useState<ICourseRegisted[]>([]);
+  const [selectedFilter, setSelectedFilter] = useState(OPTION_COURSE[0].label);
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.user.user);
 
@@ -43,9 +53,11 @@ const CourseRegistration = () => {
     try {
       const res = await axios.get(`${env.VITE_API_ENDPOINT}/all-course`);
       setCourses(res.data.object);
+      applyFilter(res.data.object, selectedFilter);
     } catch (e) {
       console.log(e);
       setCourses([]);
+      setFilteredCourses([]);
     } finally {
       dispatch(setLoading(false));
     }
@@ -68,6 +80,39 @@ const CourseRegistration = () => {
     getDataCourse();
     getDataCourseRegisted();
   }, []);
+
+  useEffect(() => {
+    const filtered = courses.filter(
+        (course) =>
+            course.ten_mon_hoc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            course.mon_hoc_id.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredCourses(filtered);
+  }, [searchQuery, courses]);
+
+  const applyFilter = (courses: ICourse[], filter: string) => {
+    if (filter === "Môn học trong chương trình đào tạo kế hoạch") {
+      setFilteredCourses(courses); // Hiển thị tất cả môn học
+    } else if (filter === "Môn học sinh viên cần học lại (Đã rớt)") {
+      // Lọc 1 đến 2 môn học ngẫu nhiên
+      const randomCourses = [...courses]
+          .sort(() => 0.5 - Math.random())
+          .slice(0, Math.floor(Math.random() * 2) + 1); // 1 đến 2 môn
+      setFilteredCourses(randomCourses);
+    } else {
+      // Lọc 10 đến 15 môn học ngẫu nhiên
+      const randomCourses = [...courses]
+          .sort(() => 0.5 - Math.random())
+          .slice(0, Math.floor(Math.random() * 6) + 10); // 10 đến 15 môn
+      setFilteredCourses(randomCourses);
+    }
+  };
+
+
+  const onFilterChange = (_event: any, value: any) => {
+    setSelectedFilter(value.label);
+    applyFilter(courses, value.label);
+  };
 
   const onChecked = (idCourseCheck: string) => {
     if (listCourseChecked.includes(idCourseCheck)) {
@@ -98,7 +143,6 @@ const CourseRegistration = () => {
     const title = [["Học viện Công nghệ Bưu chính Viễn thông"], ["Danh sách môn học đăng ký"]];
     const headers = [["Mã MH", "Tên môn học", "Số tín chỉ", "Ngày", "Kíp học", "Tuần học", "Kỳ học", "Năm học", "Tên lớp"]];
 
-    // Kết hợp dữ liệu từ courses và listCourseRegisted
     const combinedData = listCourseRegisted.map((registed) => {
       const course = courses.find((c) => c.mon_hoc_id === registed.mon_hoc_id);
       return [
@@ -118,8 +162,6 @@ const CourseRegistration = () => {
     const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
     const workbook = XLSX.utils.book_new();
 
-    // Thiết lập định dạng và căn giữa cho tiêu đề
-    XLSX.utils.sheet_add_aoa(worksheet, [[""]], { origin: "A3" });
     worksheet["A1"].s = { font: { bold: true, sz: 16 }, alignment: { horizontal: "center" } };
     worksheet["A2"].s = { font: { bold: true, sz: 14 }, alignment: { horizontal: "center" } };
     worksheet["!merges"] = [
@@ -148,23 +190,42 @@ const CourseRegistration = () => {
           </Button>
         </div>
 
-        <Autocomplete
-            disablePortal
-            options={OPTION_COURSE}
-            sx={{ width: 400, "& .MuiAutocomplete-input": { fontSize: 15 } }}
-            defaultValue={OPTION_COURSE[0]}
-            size="small"
-            className="mt-[12px] mx-[6px]"
-            onChange={(_e, value) => console.log(value)}
-            renderInput={(params) => <TextField {...params} label="Lọc theo môn học" />}
-        />
+        <div className="flex mt-[12px] mx-[6px] items-center gap-4">
+          <Autocomplete
+              disablePortal
+              options={OPTION_COURSE}
+              sx={{ width: 500 }}
+              defaultValue={OPTION_COURSE[2]}
+              size="small"
+              onChange={onFilterChange}
+              renderInput={(params) => <TextField {...params} label="Lọc theo môn học" />}
+          />
+          <TextField
+              label="Tìm kiếm theo tên hoặc mã môn học"
+              variant="outlined"
+              size="small"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              sx={{ width: 400 }}
+          />
+        </div>
 
         <div>
           <h1 className="bg-[#7a7a7a1c] mt-[10px] py-[10px] px-[6px] font-semibold">
             Danh sách môn học mở cho đăng ký
           </h1>
-          <ListCourseOpenRegister listCourseRegisted={listCourseRegisted} courses={courses} onChecked={onChecked} listCourseChecked={listCourseChecked} />
-          {!courses.length && <h1 className="bg-[#7a7a7a1c] text-center py-[6px] italic">Không tìm thấy dữ liệu</h1>}
+          {filteredCourses.length > 0 ? (
+              <ListCourseOpenRegister
+                  listCourseRegisted={listCourseRegisted}
+                  courses={filteredCourses}
+                  onChecked={onChecked}
+                  listCourseChecked={listCourseChecked}
+              />
+          ) : (
+              <div className="flex justify-center items-center h-[100px]">
+                <p className="text-gray-500 text-lg font-semibold">Không có dữ liệu môn học</p>
+              </div>
+          )}
           <div className="flex justify-end m-[10px]">
             <Button variant="contained" style={{ backgroundColor: "#ad171c" }} size="large" onClick={handleRegisterCourse}>Đăng ký</Button>
           </div>
