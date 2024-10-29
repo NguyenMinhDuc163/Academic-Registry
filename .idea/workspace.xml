@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="526834bb-e699-4290-bfde-8a95747c3151" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/src/routes/apiRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/routes/apiRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/BE/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FE/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FE/src/page/CourseRegistration/CourseRegistration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/CourseRegistration/CourseRegistration.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FE/src/page/CourseRegistration/ListCourseOpenRegister.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/CourseRegistration/ListCourseOpenRegister.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/page/Score/Score.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/Score/Score.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FE/src/page/Score/fake_data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FE/src/page/Score/fake_data.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,21 +29,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.test.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/workspace/ThucTapCoSo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "E:\\workspace\\CSDL-PT-AcademicRegistry\\FE\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.test.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/workspace/ThucTapCoSo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\workspace\\CSDL-PT-AcademicRegistry\\FE\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/BE/test.js" working-dir="$PROJECT_DIR$/BE">
       <method v="2" />
@@ -74,7 +73,11 @@
       <workItem from="1717256466682" duration="283000" />
       <workItem from="1730106710248" duration="4583000" />
       <workItem from="1730124266665" duration="379000" />
-      <workItem from="1730127039337" duration="4882000" />
+      <workItem from="1730127039337" duration="6521000" />
+      <workItem from="1730168161282" duration="3540000" />
+      <workItem from="1730173111081" duration="23000" />
+      <workItem from="1730173849362" duration="2729000" />
+      <workItem from="1730176792304" duration="716000" />
     </task>
     <servers />
   </component>
@@ -87,7 +90,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/BE/src/routes/apiRouter.js</url>
           <line>77</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
