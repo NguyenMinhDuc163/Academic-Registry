@@ -94,35 +94,42 @@ const CourseRegistration = () => {
     if (filter === "Môn học trong chương trình đào tạo kế hoạch") {
       setFilteredCourses(courses); // Hiển thị tất cả môn học
     } else if (filter === "Môn học sinh viên cần học lại (Đã rớt)") {
-      // Lọc 1 đến 2 môn học ngẫu nhiên
-      const randomCourses = [...courses]
-          .sort(() => 0.5 - Math.random())
-          .slice(0, Math.floor(Math.random() * 2) + 1); // 1 đến 2 môn
+      const randomCourses = [...courses].sort(() => 0.5 - Math.random()).slice(0, Math.floor(Math.random() * 2) + 1);
       setFilteredCourses(randomCourses);
     } else {
-      // Lọc 10 đến 15 môn học ngẫu nhiên
-      const randomCourses = [...courses]
-          .sort(() => 0.5 - Math.random())
-          .slice(0, Math.floor(Math.random() * 6) + 10); // 10 đến 15 môn
+      const randomCourses = [...courses].sort(() => 0.5 - Math.random()).slice(0, Math.floor(Math.random() * 6) + 10);
       setFilteredCourses(randomCourses);
     }
   };
-
 
   const onFilterChange = (_event: any, value: any) => {
     setSelectedFilter(value.label);
     applyFilter(courses, value.label);
   };
 
+  const calculateTotalCredits = () => {
+    return listCourseChecked.reduce((total, id) => {
+      const course = courses.find((c) => c.mon_hoc_id === id);
+      return total + (course ? parseInt(course.so_tc, 10) : 0);
+    }, 0);
+  };
+
   const onChecked = (idCourseCheck: string) => {
     if (listCourseChecked.includes(idCourseCheck)) {
       setListCourseChecked(listCourseChecked.filter((id) => id !== idCourseCheck));
-      return;
+    } else {
+      setListCourseChecked([...listCourseChecked, idCourseCheck]);
     }
-    setListCourseChecked([...listCourseChecked, idCourseCheck]);
   };
 
   const handleRegisterCourse = async () => {
+    const totalCredits = calculateTotalCredits();
+
+    if (totalCredits > 21) {
+      toast.warning("Bạn không thể đăng ký quá 21 tín chỉ.");
+      return;
+    }
+
     dispatch(setLoading(true));
     try {
       await axios.post(`${env.VITE_API_ENDPOINT}/dang-ki`, {
@@ -227,7 +234,9 @@ const CourseRegistration = () => {
               </div>
           )}
           <div className="flex justify-end m-[10px]">
-            <Button variant="contained" style={{ backgroundColor: "#ad171c" }} size="large" onClick={handleRegisterCourse}>Đăng ký</Button>
+            <Button variant="contained" style={{ backgroundColor: "#ad171c" }} size="large" onClick={handleRegisterCourse}>
+              Đăng ký
+            </Button>
           </div>
         </div>
 
